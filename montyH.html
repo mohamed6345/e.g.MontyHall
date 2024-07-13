@@ -1,0 +1,327 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:DengXian;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"\@DengXian";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:Aptos;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+.MsoChpDefault
+	{font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal>&lt;!DOCTYPE html&gt;</p>
+
+<p class=MsoNormal>&lt;html lang=&quot;en&quot;&gt;</p>
+
+<p class=MsoNormal>&lt;head&gt;</p>
+
+<p class=MsoNormal>    &lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+
+<p class=MsoNormal>    &lt;meta name=&quot;viewport&quot;
+content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+
+<p class=MsoNormal>    &lt;title&gt;Monty Hall Game&lt;/title&gt;</p>
+
+<p class=MsoNormal>    &lt;style&gt;</p>
+
+<p class=MsoNormal>        body {</p>
+
+<p class=MsoNormal>            font-family: Arial, sans-serif;</p>
+
+<p class=MsoNormal>            text-align: center;</p>
+
+<p class=MsoNormal>            margin-top: 50px;</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>        .doors {</p>
+
+<p class=MsoNormal>            display: flex;</p>
+
+<p class=MsoNormal>            justify-content: center;</p>
+
+<p class=MsoNormal>            margin-top: 20px;</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>        .door {</p>
+
+<p class=MsoNormal>            width: 100px;</p>
+
+<p class=MsoNormal>            height: 200px;</p>
+
+<p class=MsoNormal>            border: 2px solid #000;</p>
+
+<p class=MsoNormal>            margin: 0 20px;</p>
+
+<p class=MsoNormal>            line-height: 200px;</p>
+
+<p class=MsoNormal>            font-size: 24px;</p>
+
+<p class=MsoNormal>            cursor: pointer;</p>
+
+<p class=MsoNormal>            background-color: #ccc;</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>        .hidden {</p>
+
+<p class=MsoNormal>            display: none;</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>        .car {</p>
+
+<p class=MsoNormal>            background-color: green;</p>
+
+<p class=MsoNormal>            color: white;</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>        .empty {</p>
+
+<p class=MsoNormal>            background-color: red;</p>
+
+<p class=MsoNormal>            color: white;</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>    &lt;/style&gt;</p>
+
+<p class=MsoNormal>&lt;/head&gt;</p>
+
+<p class=MsoNormal>&lt;body&gt;</p>
+
+<p class=MsoNormal>    &lt;h1&gt;Monty Hall Game&lt;/h1&gt;</p>
+
+<p class=MsoNormal>    &lt;p&gt;Choose a door:&lt;/p&gt;</p>
+
+<p class=MsoNormal>    &lt;div class=&quot;doors&quot;&gt;</p>
+
+<p class=MsoNormal>        &lt;div class=&quot;door&quot; id=&quot;door1&quot;
+onclick=&quot;chooseDoor(1)&quot;&gt;1&lt;/div&gt;</p>
+
+<p class=MsoNormal>        &lt;div class=&quot;door&quot; id=&quot;door2&quot;
+onclick=&quot;chooseDoor(2)&quot;&gt;2&lt;/div&gt;</p>
+
+<p class=MsoNormal>        &lt;div class=&quot;door&quot; id=&quot;door3&quot;
+onclick=&quot;chooseDoor(3)&quot;&gt;3&lt;/div&gt;</p>
+
+<p class=MsoNormal>    &lt;/div&gt;</p>
+
+<p class=MsoNormal>    &lt;p id=&quot;message&quot;&gt;&lt;/p&gt;</p>
+
+<p class=MsoNormal>    &lt;button id=&quot;switchButton&quot;
+class=&quot;hidden&quot; onclick=&quot;switchDoor()&quot;&gt;Switch
+Door&lt;/button&gt;</p>
+
+<p class=MsoNormal>    &lt;button id=&quot;stayButton&quot;
+class=&quot;hidden&quot; onclick=&quot;stay()&quot;&gt;Stay&lt;/button&gt;</p>
+
+<p class=MsoNormal>    &lt;button id=&quot;replayButton&quot;
+class=&quot;hidden&quot; onclick=&quot;replay()&quot;&gt;Play
+Again&lt;/button&gt;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>    &lt;script&gt;</p>
+
+<p class=MsoNormal>        let carBehindDoor = Math.floor(Math.random() * 3) +
+1;</p>
+
+<p class=MsoNormal>        let userChoice;</p>
+
+<p class=MsoNormal>        let revealedDoor;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        function chooseDoor(door) {</p>
+
+<p class=MsoNormal>            userChoice = door;</p>
+
+<p class=MsoNormal>            document.getElementById('message').innerText =
+`You chose door ${door}. Let's reveal an empty door.`;</p>
+
+<p class=MsoNormal>            revealEmptyDoor();</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        function revealEmptyDoor() {</p>
+
+<p class=MsoNormal>            do {</p>
+
+<p class=MsoNormal>                revealedDoor = Math.floor(Math.random() * 3)
++ 1;</p>
+
+<p class=MsoNormal>            } while (revealedDoor === carBehindDoor ||
+revealedDoor === userChoice);</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>           
+document.getElementById(`door${revealedDoor}`).classList.add('empty');</p>
+
+<p class=MsoNormal>            document.getElementById('message').innerText +=
+` Door ${revealedDoor} is empty. Do you want to switch your choice?`;</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>           
+document.getElementById('switchButton').classList.remove('hidden');</p>
+
+<p class=MsoNormal>           
+document.getElementById('stayButton').classList.remove('hidden');</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        function switchDoor() {</p>
+
+<p class=MsoNormal>            userChoice = 6 - userChoice - revealedDoor;  //
+Switch to the remaining door</p>
+
+<p class=MsoNormal>            checkWin();</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        function stay() {</p>
+
+<p class=MsoNormal>            checkWin();</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        function checkWin() {</p>
+
+<p class=MsoNormal>            document.getElementById(`door${carBehindDoor}`).classList.add('car');</p>
+
+<p class=MsoNormal>            if (userChoice === carBehindDoor) {</p>
+
+<p class=MsoNormal>                document.getElementById('message').innerText
+= `Congratulations! You won the car behind door ${carBehindDoor}!`;</p>
+
+<p class=MsoNormal>            } else {</p>
+
+<p class=MsoNormal>                document.getElementById('message').innerText
+= `Sorry, the car was behind door ${carBehindDoor}.`;</p>
+
+<p class=MsoNormal>            }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>            document.querySelectorAll('.door').forEach(door
+=&gt; {</p>
+
+<p class=MsoNormal>                door.onclick = null;</p>
+
+<p class=MsoNormal>            });</p>
+
+<p class=MsoNormal>           
+document.getElementById('switchButton').classList.add('hidden');</p>
+
+<p class=MsoNormal>           
+document.getElementById('stayButton').classList.add('hidden');</p>
+
+<p class=MsoNormal>            document.getElementById('replayButton').classList.remove('hidden');</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>        function replay() {</p>
+
+<p class=MsoNormal>            carBehindDoor = Math.floor(Math.random() * 3) +
+1;</p>
+
+<p class=MsoNormal>            userChoice = null;</p>
+
+<p class=MsoNormal>            revealedDoor = null;</p>
+
+<p class=MsoNormal>            document.getElementById('message').innerText =
+'Choose a door:';</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>            document.querySelectorAll('.door').forEach(door
+=&gt; {</p>
+
+<p class=MsoNormal>                door.onclick = function() {</p>
+
+<p class=MsoNormal>                   
+chooseDoor(parseInt(door.id.replace('door', '')));</p>
+
+<p class=MsoNormal>                };</p>
+
+<p class=MsoNormal>                door.classList.remove('car', 'empty');</p>
+
+<p class=MsoNormal>                door.innerText = door.id.replace('door',
+'');</p>
+
+<p class=MsoNormal>            });</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>           
+document.getElementById('switchButton').classList.add('hidden');</p>
+
+<p class=MsoNormal>            document.getElementById('stayButton').classList.add('hidden');</p>
+
+<p class=MsoNormal>           
+document.getElementById('replayButton').classList.add('hidden');</p>
+
+<p class=MsoNormal>        }</p>
+
+<p class=MsoNormal>    &lt;/script&gt;</p>
+
+<p class=MsoNormal>&lt;/body&gt;</p>
+
+<p class=MsoNormal>&lt;/html&gt;</p>
+
+</div>
+
+</body>
+
+</html>
